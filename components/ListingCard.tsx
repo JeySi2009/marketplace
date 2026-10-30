@@ -6,9 +6,10 @@ import type { Listing } from '@/types';
 
 interface ListingCardProps {
   listing: Listing;
+  priority?: boolean;
 }
 
-export function ListingCard({ listing }: ListingCardProps) {
+export function ListingCard({ listing, priority }: ListingCardProps) {
   const price = (listing.price / 100).toLocaleString('en-US', {
     style: 'currency',
     currency: listing.currency,
@@ -22,11 +23,11 @@ export function ListingCard({ listing }: ListingCardProps) {
     >
       <div className="relative aspect-[3/2] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
         <Image
-          src={listing.imageUrl}
+          src={listing.image_url}
           alt={listing.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="eager"
+          loading={priority ? 'eager' : 'lazy'}
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <span className="absolute left-3 top-3 rounded-full bg-black/70 px-2.5 py-0.5 text-xs font-medium text-white">
@@ -57,7 +58,7 @@ export function ListingCard({ listing }: ListingCardProps) {
           <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
             {price}
           </span>
-          <span className="text-xs text-gray-400">by {listing.sellerName}</span>
+          <span className="text-xs text-gray-400">by {listing.seller_name}</span>
         </div>
       </div>
     </Link>

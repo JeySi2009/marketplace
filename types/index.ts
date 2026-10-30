@@ -18,15 +18,15 @@ export interface Listing {
   slug: string;
   title: string;
   description: string;
-  type: ListingType;
-  price: number;        // в центах, чтобы не мучиться с float
-  currency: string;     // пока 'USD'
+  type: 'digital' | 'project';
+  price: number;
+  currency: string;
   tags: string[];
-  imageUrl: string;
-  sellerId: string;
-  sellerName: string;
-  status: ListingStatus;
-  createdAt: string;
+  image_url: string;       // было imageUrl
+  seller_id: string;       // было sellerId
+  seller_name: string;     // было sellerName
+  status: 'draft' | 'pending' | 'active' | 'sold';
+  created_at: string;      // было createdAt
 }
 
 export interface Order {
