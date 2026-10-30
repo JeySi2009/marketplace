@@ -1,0 +1,13 @@
+├── app/
+│   ├── page.tsx              # лента листингов
+│   ├── listing/[slug]/page.tsx
+│   ├── sell/page.tsx
+│   └── dashboard/page.tsx
+├── components/
+│   ├── ListingCard.tsx
+│   └── FilterBar.tsx
+├── lib/
+│   ├── supabase.ts           # клиент (пока заглушка)
+│   └── mock-data.ts          # временные данные
+└── types/
+    └── index.ts              # типы Listing, Order, Profile

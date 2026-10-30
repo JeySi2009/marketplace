@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#e5e7eb"/>
+  <rect x="0" y="0" width="600" height="400" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c7d2fe"/>
+      <stop offset="100%" stop-color="#a5b4fc"/>
+    </linearGradient>
+  </defs>
+  <text x="300" y="205" font-family="sans-serif" font-size="28" fill="#4f46e5" text-anchor="middle" font-weight="600">Vibe Market</text>
+</svg>
