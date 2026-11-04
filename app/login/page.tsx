@@ -17,8 +17,8 @@ export default function LoginPage() {
     if (error) {
       setError(error.message)
     } else {
+      router.refresh()
       router.push('/')
-      router.refresh() // Обновляем серверные компоненты
     }
   }
 

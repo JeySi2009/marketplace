@@ -19,8 +19,7 @@ export async function createClient() {
               cookieStore.set(name, value, options)
             )
           } catch {
-            // Метод setAll был вызван из Server Component. 
-            // Это можно игнорировать, если у вас есть middleware для обновления сессий.
+            // Игнорируем ошибку в Server Components, если есть middleware
           }
         },
       },

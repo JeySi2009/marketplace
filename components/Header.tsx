@@ -1,4 +1,5 @@
 // components/Header.tsx
+import { connection } from 'next/server';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { createClient } from '@/lib/supabase/server';
@@ -6,6 +7,8 @@ import { LogoutButton } from './LogoutButton';
 
 // Выносим динамическую часть в отдельный асинхронный компонент
 async function UserNav() {
+  await connection(); 
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -13,6 +16,9 @@ async function UserNav() {
     return (
       <>
         <span className="text-sm text-gray-500 hidden sm:inline">{user.email}</span>
+        <Link href="/dashboard" className="text-sm font-medium text-gray-600 hover:text-accent dark:text-gray-300">
+          Мои проекты
+        </Link>
         <Link href="/sell" className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover">
           + Разместить
         </Link>
@@ -40,7 +46,7 @@ export function Header() {
       <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-gray-100">
         Vibe Market
       </Link>
-      
+
       <div className="flex items-center gap-4">
         {/* Оборачиваем динамическую часть в Suspense */}
         <Suspense fallback={

@@ -30,7 +30,7 @@ export function ListingCard({ listing, priority }: ListingCardProps) {
           loading={priority ? 'eager' : 'lazy'}
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-full bg-black/70 px-2.5 py-0.5 text-xs font-medium text-white">
+        <span className="absolute left-3 top-3 rounded-full bg-accent/90 px-2.5 py-0.5 text-xs font-semibold text-white backdrop-blur-sm">
           {listing.type === 'digital' ? 'Digital' : 'Project'}
         </span>
       </div>
@@ -54,11 +54,13 @@ export function ListingCard({ listing, priority }: ListingCardProps) {
           ))}
         </div>
 
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3 dark:border-gray-800">
           <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
             {price}
           </span>
-          <span className="text-xs text-gray-400">by {listing.seller_name}</span>
+          <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+            by {listing.seller_name}
+          </span>
         </div>
       </div>
     </Link>

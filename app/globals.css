@@ -15,12 +15,15 @@
 /* 2. Базовые стили и переменные */
 @layer base {
   :root {
-    --background: #ffffff;
+    --background: #fafafa;
     --foreground: #171717;
     
     /* Фиолетовый акцент в стиле Linear/Vercel */
     --accent: #7c3aed; /* violet-600 */
     --accent-hover: #6d28d9; /* violet-700 */
+
+    /* На светлой теме: насыщенный фиолетовый с прозрачностью 15% (видно, но не грязно) */
+    --spotlight-color: rgba(124, 58, 237, 0.15); 
   }
 
   /* Тёмная тема */
@@ -31,6 +34,9 @@
       
       --accent: #8b5cf6; /* violet-500 */
       --accent-hover: #7c3aed; /* violet-600 */
+
+      /* На темной теме: делаем ярче и чуть более непрозрачным (20%) */
+      --spotlight-color: rgba(139, 92, 246, 0.25); 
     }
   }
 }
