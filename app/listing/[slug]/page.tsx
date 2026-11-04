@@ -69,10 +69,7 @@ async function ListingDetails({ params }: { params: Promise<{ slug: string }> })
               {price}
             </span>
           </div>
-          <button
-            type="button"
-            className="mt-4 w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-700"
-          >
+          <button type="button" className="mt-4 w-full rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover">
             Купить
           </button>
         </div>

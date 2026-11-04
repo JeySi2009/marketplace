@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { ListingCard } from '@/components/ListingCard';
 import { supabase } from '@/lib/supabase';
 import type { Listing } from '@/types';
+import { Header } from '@/components/Header';
 
 // Компонент, который непосредственно делает запрос
 async function ListingsGrid() {
@@ -34,15 +35,7 @@ async function ListingsGrid() {
 export default function HomePage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
-      <header className="mb-8 flex items-end justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Vibe Market</h1>
-          <p className="mt-1 text-gray-500 dark:text-gray-400">Цифровые товары и готовые проекты на продажу</p>
-        </div>
-        <Link href="/sell" className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">
-          + Разместить
-        </Link>
-      </header>
+      <Header />
 
       {/* Оборачиваем динамический контент в Suspense */}
       <Suspense fallback={
