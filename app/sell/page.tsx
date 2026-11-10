@@ -114,20 +114,20 @@ export default function SellPage() {
       <form onSubmit={handleSubmit} className="mt-8 space-y-5">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Название</label>
-          <input required name="title" type="text" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white" />
+          <input required name="title" type="text" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:outline-none focus:border-transparent dark:border-gray-700 dark:bg-gray-900 dark:text-white" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Описание</label>
-          <textarea required name="description" rows={4} className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white" />
+          <textarea required name="description" rows={4} className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:outline-none focus:border-transparent dark:border-gray-700 dark:bg-gray-900 dark:text-white" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Цена (USD)</label>
-            <input required name="price" type="number" min="0" step="0.01" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white" />
+            <input required name="price" type="number" min="0" step="0.01" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:outline-none focus:border-transparent dark:border-gray-700 dark:bg-gray-900 dark:text-white" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Тип</label>
-            <select name="type" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white">
+            <select name="type" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:outline-none focus:border-transparent dark:border-gray-700 dark:bg-gray-900 dark:text-white">
               <option value="digital">Цифровой товар</option>
               <option value="project">Готовый проект</option>
             </select>
@@ -135,7 +135,7 @@ export default function SellPage() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Теги (через запятую)</label>
-          <input name="tags" type="text" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white" placeholder="Next.js, React" />
+          <input name="tags" type="text" className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:outline-none focus:border-transparent dark:border-gray-700 dark:bg-gray-900 dark:text-white" placeholder="Next.js, React" />
         </div>
 
         <div>

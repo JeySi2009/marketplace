@@ -22,11 +22,12 @@ export interface Listing {
   price: number;
   currency: string;
   tags: string[];
-  image_url: string;       // было imageUrl
-  seller_id: string;       // было sellerId
-  seller_name: string;     // было sellerName
+  image_url: string;
+  images?: string[];
+  seller_id: string;       
+  seller_name: string;     
   status: 'draft' | 'pending' | 'active' | 'sold';
-  created_at: string;      // было createdAt
+  created_at: string;      
 }
 
 export interface Order {

@@ -26,10 +26,12 @@ async function DashboardContent() {
 
   return (
     <div className="w-full"> {/* Обертка на всю ширину */}
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Мои проекты</h1>
-      <Link href="/sell" className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-hover">
-        + Новый проект
-      </Link>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Мои проекты</h1>
+        <Link href="/sell" className="w-fit rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-hover whitespace-nowrap">
+          + Новый проект
+        </Link>
+      </div>
 
       {/* Пустое состояние или Таблица */}
       {!listings || listings.length === 0 ? (
@@ -42,7 +44,14 @@ async function DashboardContent() {
       ) : (
         <div className="border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
           <table className="w-full text-left text-sm">
-            {/* ... заголовки таблицы ... */}
+            <thead className="bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400">
+              <tr>
+                <th className="px-6 py-3 font-medium">Название</th>
+                <th className="px-6 py-3 font-medium">Цена</th>
+                <th className="px-6 py-3 font-medium">Статус</th>
+                <th className="px-6 py-3 font-medium text-right">Действия</th>
+              </tr>
+            </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
               {listings.map((item: Listing) => (
                 <tr key={item.id} className="hover:bg-gray-50 dark:hover:bg-gray-900/50">
@@ -60,7 +69,30 @@ async function DashboardContent() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <button className="text-red-500 hover:text-red-700 text-sm font-medium">Удалить</button>
+                    <div className="flex items-center justify-end gap-3">
+                      {/* Кнопка просмотра (ведет на публичную страницу) */}
+                      <Link
+                        href={`/listing/${item.slug}`}
+                        className="text-gray-400 hover:text-accent transition-colors"
+                        title="Предпросмотр"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                      </Link>
+
+                      {/* Кнопка редактирования */}
+                      <Link
+                        href={`/dashboard/edit/${item.id}`}
+                        className="text-gray-400 hover:text-accent transition-colors"
+                        title="Редактировать"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </Link>
+                    </div>
                   </td>
                 </tr>
               ))}

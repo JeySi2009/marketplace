@@ -9,7 +9,7 @@ import { Header } from '@/components/Header';
 // --- Боковая панель с фильтрами ---
 function Sidebar({ activeCategory }: { activeCategory?: string }) {
   const categories = ['SaaS', 'Шаблоны', 'Боты', 'Next.js', 'React', 'Mobile'];
-  
+
   return (
     <aside className="w-full md:w-64 flex-shrink-0">
       <div className="sticky top-6 space-y-8">
@@ -33,7 +33,11 @@ function Sidebar({ activeCategory }: { activeCategory?: string }) {
 
 // --- Сетка листингов ---
 async function ListingsGrid({ category }: { category?: string }) {
-  let query = supabase.from('listings').select('*').order('created_at', { ascending: false });
+  let query = supabase
+    .from('listings')
+    .select('*')
+    .eq('status', 'active')
+    .order('created_at', { ascending: false });
   if (category) query = query.contains('tags', [category]);
 
   const { data: listings, error } = await query;
@@ -56,7 +60,7 @@ export default function CatalogPage({ searchParams }: { searchParams: Promise<{ 
   return (
     <main className="mx-auto max-w-7xl px-4 py-6">
       <Header />
-      
+
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Каталог проектов</h1>
         <p className="mt-2 text-gray-500">Ищите готовые решения, шаблоны и SaaS-проекты.</p>
@@ -66,7 +70,7 @@ export default function CatalogPage({ searchParams }: { searchParams: Promise<{ 
         <Suspense fallback={<div className="w-64 h-40 animate-pulse bg-gray-200 rounded-lg"></div>}>
           <SidebarWrapper searchParams={searchParams} />
         </Suspense>
-        
+
         <div className="flex-1">
           <Suspense fallback={<div className="text-gray-500">Загрузка проектов...</div>}>
             <ListingsWrapper searchParams={searchParams} />

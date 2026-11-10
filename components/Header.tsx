@@ -7,8 +7,8 @@ import { LogoutButton } from './LogoutButton';
 
 // Выносим динамическую часть в отдельный асинхронный компонент
 async function UserNav() {
-  await connection(); 
-
+  await connection();
+  
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -18,9 +18,6 @@ async function UserNav() {
         <span className="text-sm text-gray-500 hidden sm:inline">{user.email}</span>
         <Link href="/dashboard" className="text-sm font-medium text-gray-600 hover:text-accent dark:text-gray-300">
           Мои проекты
-        </Link>
-        <Link href="/sell" className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover">
-          + Разместить
         </Link>
         <LogoutButton />
       </>

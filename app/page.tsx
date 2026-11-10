@@ -85,8 +85,9 @@ async function TopListings() {
   const { data: listings } = await supabase
     .from('listings')
     .select('*')
+    .eq('status', 'active')
     .order('created_at', { ascending: false })
-    .limit(3); // Ограничиваем тремя!
+    .limit(6); // Ограничиваем тремя!
 
   if (!listings || listings.length === 0) return null;
 
